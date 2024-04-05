@@ -12,12 +12,27 @@ public class UIManager : NetworkBehaviour
 
     public GameObject PlayerPrefab;
     private GameObject PlayerInstance;
-    private GameObject PlayerNetworkObject;
-
+    private NetworkObject PlayerNetworkObject;
+    public Vector3 PlayerSpawnPosition;
 
     public override void OnNetworkSpawn()
     {
-        
+        //enabled = IsServer;
+        //if (!enabled || PlayerPrefab == null)
+        //{
+        //    return;
+        //}
+
+        PlayerInstance = Instantiate(PlayerPrefab);
+
+        PlayerInstance.transform.position = PlayerSpawnPosition;
+        PlayerInstance.transform.rotation = transform.rotation;
+
+        print("ideal pos is " + PlayerSpawnPosition);
+        print("actual pos is " + PlayerInstance.transform.position);
+
+        PlayerNetworkObject = PlayerInstance.GetComponent<NetworkObject>();
+        PlayerNetworkObject.Spawn();
     }
 
     public void StartHost()

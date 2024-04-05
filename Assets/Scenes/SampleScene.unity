@@ -905,7 +905,7 @@ MonoBehaviour:
   m_MaxConnectAttempts: 60
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
-    Address: 127.0.0.1
+    Address: 10.10.16.179
     Port: 7777
     ServerListenAddress: 127.0.0.1
   DebugSimulator:
@@ -2178,6 +2178,9 @@ MonoBehaviour:
   debugText: {fileID: 1217039313}
   LobbyUI: {fileID: 1386546686}
   LobbyCam: {fileID: 27096605}
+  PlayerPrefab: {fileID: 5557108680045491522, guid: b540e8ac64235aa4b8c38e2afc1dd3ae,
+    type: 3}
+  PlayerSpawnPosition: {x: 0, y: 4.5, z: 0}
 --- !u!114 &1756632470
 MonoBehaviour:
   m_ObjectHideFlags: 0
