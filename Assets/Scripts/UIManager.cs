@@ -8,15 +8,7 @@ public class UIManager : NetworkBehaviour
 {
     [SerializeField] TextMeshProUGUI debugText = null;
     [SerializeField] GameObject LobbyUI;
-    [SerializeField] NetworkObject FA, Diplomat;
     [SerializeField] Camera LobbyCam;
-
-    bool spawnFA, spawnDiplomat = false;
-
-    public void PickPlayer()
-    {
-        spawnFA = true;
-    }
 
     public void StartHost()
     {
@@ -30,15 +22,6 @@ public class UIManager : NetworkBehaviour
         {
             debugText.text = "Host failed to Start";
         }
-    }
-
-    public override void OnNetworkSpawn()
-    {
-        if(spawnFA)
-            FA.SpawnAsPlayerObject(OwnerClientId);
-
-        if(spawnDiplomat)
-            Diplomat.SpawnAsPlayerObject(OwnerClientId);
     }
 
     public void StartServer()
@@ -60,7 +43,6 @@ public class UIManager : NetworkBehaviour
             //LobbyUI.SetActive(false);
             //LobbyCam.enabled = false;
             debugText.text = "Client started";
-            spawnDiplomat = true;
         }
         else
         {
