@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using Unity.Netcode;
 
 public class PlayerEngage : NetworkBehaviour
 {
+    [SerializeField] bool tabletUser, shipMover;
     [SerializeField] GameObject tablet;
     private PlayerLook playerLook;
     bool tabletOpen = false;
@@ -20,7 +17,13 @@ public class PlayerEngage : NetworkBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab))
+        if (tabletUser)
+            UseTablet();
+    }
+
+    void UseTablet()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (!tabletOpen)
             {
@@ -38,7 +41,11 @@ public class PlayerEngage : NetworkBehaviour
                 animator.SetBool("Tablet", false);
                 tabletOpen = false;
             }
-
         }
+    }
+
+    void ShipMove()
+    {
+        transform.Translate(Vector3.forward);
     }
 }

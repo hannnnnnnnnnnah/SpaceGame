@@ -9,20 +9,18 @@ public class PlayerLook : NetworkBehaviour
 {
     [SerializeField] int minAngle, maxAngle, sensitivity;
     private Vector3 camRotation;
-    NetworkObject networkObject;
 
     public bool rotate = true;
     public Camera cam;
 
     private void Start()
     {
-        //UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void FixedUpdate()
     {
-        if (IsOwner)
-            Rotate();
+        Rotate();
     }
 
     //Camera rotation stuff
