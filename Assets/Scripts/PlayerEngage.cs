@@ -30,7 +30,7 @@ public class PlayerEngage : NetworkBehaviour
                 playerLook.rotate = false;
                 tablet.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
-                animator.SetBool("Tablet", true);
+                //animator.SetBool("Tablet", true);
                 tabletOpen = true;
             }
             else
@@ -44,7 +44,7 @@ public class PlayerEngage : NetworkBehaviour
         }
     }
 
-    void ShipMove()
+    public void ShipMove()
     {
         transform.Translate(Vector3.forward);
     }
