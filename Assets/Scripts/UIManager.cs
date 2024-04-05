@@ -10,6 +10,16 @@ public class UIManager : NetworkBehaviour
     [SerializeField] GameObject LobbyUI;
     [SerializeField] Camera LobbyCam;
 
+    public GameObject PlayerPrefab;
+    private GameObject PlayerInstance;
+    private GameObject PlayerNetworkObject;
+
+
+    public override void OnNetworkSpawn()
+    {
+        
+    }
+
     public void StartHost()
     {
         if (NetworkManager.Singleton.StartHost())

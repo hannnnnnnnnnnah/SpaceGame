@@ -750,8 +750,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3201292346921226761}
-  - component: {fileID: 8365998617387035524}
   - component: {fileID: 7297403718430017623}
+  - component: {fileID: 8365998617387035524}
   - component: {fileID: 4310909387450231025}
   - component: {fileID: 827612937264658523}
   - component: {fileID: 1395409638094090882}
@@ -780,23 +780,6 @@ Transform:
   - {fileID: 6824028300995216487}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 223.188, z: 0}
---- !u!114 &8365998617387035524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5557108680045491522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e0015cd189da7241bf21751ba301f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minAngle: -90
-  maxAngle: 90
-  sensitivity: 175
-  rotate: 1
-  cam: {fileID: 4901851226921503831}
 --- !u!114 &7297403718430017623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,6 +801,23 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &8365998617387035524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5557108680045491522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0015cd189da7241bf21751ba301f3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minAngle: -90
+  maxAngle: 90
+  sensitivity: 175
+  rotate: 1
+  cam: {fileID: 4901851226921503831}
 --- !u!114 &4310909387450231025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,8 +831,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tablet: {fileID: 6150426717759505650}
-  diplomatPos: {fileID: 0}
-  faPos: {fileID: 0}
 --- !u!95 &827612937264658523
 Animator:
   serializedVersion: 5
