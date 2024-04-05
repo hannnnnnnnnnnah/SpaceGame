@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using UnityEditor.PackageManager;
 using UnityEngine;
+using Unity.Netcode;
 
-public class PlayerEngage : MonoBehaviour
+public class PlayerEngage : NetworkBehaviour
 {
     [SerializeField] GameObject tablet;
     private PlayerLook playerLook;

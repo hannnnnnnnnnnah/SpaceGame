@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Unity.Netcode;
 
-[RequireComponent(typeof(NetworkObject))]
-public class PlayerLook : MonoBehaviour
+public class PlayerLook : NetworkBehaviour
 {
     [SerializeField] int minAngle, maxAngle, sensitivity;
     private Vector3 camRotation;
@@ -17,13 +16,12 @@ public class PlayerLook : MonoBehaviour
 
     private void Start()
     {
-        networkObject = GetComponent<NetworkObject>();
-        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        //UnityEngine.Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void FixedUpdate()
     {
-        if(networkObject.IsOwner)
+        if (IsOwner)
             Rotate();
     }
 

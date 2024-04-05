@@ -720,9 +720,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4110355449910247899}
+  - component: {fileID: 1897674859508334915}
   - component: {fileID: 3457697947732845915}
   - component: {fileID: 5866229132230116129}
-  - component: {fileID: 1897674859508334915}
+  - component: {fileID: 8626490673387127412}
   m_Layer: 0
   m_Name: Diplomat
   m_TagString: Untagged
@@ -748,6 +749,27 @@ Transform:
   - {fileID: 710631210805109293}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 151.997, z: 0}
+--- !u!114 &1897674859508334915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4376874360519578412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 692790445
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &3457697947732845915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,7 +800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tablet: {fileID: 4516106940825058314}
---- !u!114 &1897674859508334915
+--- !u!114 &8626490673387127412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -787,18 +809,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4376874360519578412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 774a8cc4a77e68a4bac39bc4603a48f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 692790445
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!1 &4621150120829574645
 GameObject:
   m_ObjectHideFlags: 0
