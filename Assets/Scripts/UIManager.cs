@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Netcode;
+using UnityEngine.Networking;
 using UnityEngine;
 
 public class UIManager : NetworkBehaviour
@@ -13,7 +14,7 @@ public class UIManager : NetworkBehaviour
     public GameObject PlayerPrefab;
     private GameObject PlayerInstance;
     private NetworkObject PlayerNetworkObject;
-    public Vector3 PlayerSpawnPosition;
+    public Transform[] spawnPositions;
 
     public override void OnNetworkSpawn()
     {
@@ -25,11 +26,10 @@ public class UIManager : NetworkBehaviour
 
         PlayerInstance = Instantiate(PlayerPrefab);
 
-        PlayerInstance.transform.position = PlayerSpawnPosition;
-        PlayerInstance.transform.rotation = transform.rotation;
+        int connections = NetworkManager.Singleton.ConnectedClients.Count-1;
 
-        print("ideal pos is " + PlayerSpawnPosition);
-        print("actual pos is " + PlayerInstance.transform.position);
+        PlayerInstance.transform.position = spawnPositions[connections].position;
+        PlayerInstance.transform.rotation = transform.rotation;
 
         PlayerNetworkObject = PlayerInstance.GetComponent<NetworkObject>();
         PlayerNetworkObject.Spawn();
