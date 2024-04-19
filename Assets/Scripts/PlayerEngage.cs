@@ -3,49 +3,54 @@ using Unity.Netcode;
 
 public class PlayerEngage : NetworkBehaviour
 {
-    [SerializeField] bool tabletUser, shipMover;
-    [SerializeField] GameObject tablet;
-    private PlayerLook playerLook;
-    bool tabletOpen = false;
-    Animator animator;
+    [SerializeField] GameObject ship, bullet, gun;
+    bool shipMove = false;
+    public bool pilot, diplomat;
+    float shipSpeed = 20;
 
     void Start()
     {
-        playerLook = GetComponent<PlayerLook>();
-        animator = GetComponent<Animator>();
+        Cursor.lockState = CursorLockMode.Confined;
+
+        ship = GameManager.instance.Ship;
+        bullet = GameManager.instance.Bullet;
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        if (tabletUser)
-            UseTablet();
-    }
-
-    void UseTablet()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (shipMove)
         {
-            if (!tabletOpen)
-            {
-                playerLook.rotate = false;
-                tablet.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                //animator.SetBool("Tablet", true);
-                tabletOpen = true;
-            }
-            else
-            {
-                playerLook.rotate = true;
-                tablet.SetActive(false);
-                Cursor.lockState = CursorLockMode.Locked;
-                animator.SetBool("Tablet", false);
-                tabletOpen = false;
-            }
+            ship.transform.Translate(Vector3.back * Time.deltaTime * shipSpeed);
+            //Debug.Log(ship.transform.position);
         }
     }
 
+    //Captain methods
+
     public void ShipMove()
     {
-        transform.Translate(Vector3.forward);
+        if(!shipMove)
+            shipMove = true;
+        else
+            shipMove = false;
+    }
+
+    //Combat SP methods
+
+    public void Shoot()
+    {
+        NetworkBehaviour.Instantiate(bullet, gun.transform.position, gun.transform.rotation);
+    }
+
+    //Diplomat methods
+
+    public void Yes()
+    {
+
+    }
+
+    public void No()
+    {
+
     }
 }

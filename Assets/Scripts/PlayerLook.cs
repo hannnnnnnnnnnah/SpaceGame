@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Unity.Netcode;
 
 public class PlayerLook : NetworkBehaviour
@@ -12,11 +8,6 @@ public class PlayerLook : NetworkBehaviour
 
     public bool rotate = true;
     public Camera cam;
-
-    private void Start()
-    {
-        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
-    }
 
     private void FixedUpdate()
     {
@@ -30,13 +21,16 @@ public class PlayerLook : NetworkBehaviour
 
         if (rotate)
         {
-            transform.Rotate(Vector3.up * sensitivity * Time.fixedDeltaTime * (Input.GetAxis("Mouse X")));
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.Rotate(Vector3.down * sensitivity * Time.fixedDeltaTime);
+            }
 
-            camRotation.x -= Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime;
-            camRotation.x = Mathf.Clamp(camRotation.x, minAngle, maxAngle);
+            if(Input.GetKey(KeyCode.D))
+            {
+                transform.Rotate(Vector3.up * sensitivity * Time.fixedDeltaTime);
+            }
         }
-        else
-            camRotation.x = 80f;
     }
 
 }
