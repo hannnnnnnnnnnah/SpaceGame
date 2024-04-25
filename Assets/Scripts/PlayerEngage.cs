@@ -1,19 +1,21 @@
 using UnityEngine;
 using Unity.Netcode;
+using Photon.Pun;
 
-public class PlayerEngage : NetworkBehaviour
+public class PlayerEngage : MonoBehaviourPun
 {
-    [SerializeField] GameObject ship, bullet, gun;
+    [SerializeField] GameObject Captain, Combat, bullet, gun, ship;
+
     bool shipMove = false;
-    public bool pilot, diplomat;
     float shipSpeed = 20;
 
-    void Start()
+    private void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        if (RoleManager.instance.captain)
+            Captain.SetActive(true);
 
-        ship = GameManager.instance.Ship;
-        bullet = GameManager.instance.Bullet;
+        if (RoleManager.instance.combat)
+            Combat.SetActive(true);
     }
 
     private void FixedUpdate()
@@ -29,17 +31,23 @@ public class PlayerEngage : NetworkBehaviour
 
     public void ShipMove()
     {
-        if(!shipMove)
-            shipMove = true;
-        else
-            shipMove = false;
+        if (photonView.IsMine)
+        {
+            if (!shipMove)
+                shipMove = true;
+            else
+                shipMove = false;
+        }
     }
 
     //Combat SP methods
 
     public void Shoot()
     {
-        NetworkBehaviour.Instantiate(bullet, gun.transform.position, gun.transform.rotation);
+        if (photonView.IsMine)
+        {
+            PhotonNetwork.Instantiate(this.bullet.name, gun.transform.position, gun.transform.rotation);
+        }
     }
 
     //Diplomat methods

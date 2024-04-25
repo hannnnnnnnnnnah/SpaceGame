@@ -1,17 +1,24 @@
 using UnityEngine;
 using Unity.Netcode;
+using Photon.Pun;
 
-public class PlayerLook : NetworkBehaviour
+public class PlayerLook : MonoBehaviourPun
 {
     [SerializeField] int minAngle, maxAngle, sensitivity;
     private Vector3 camRotation;
 
-    public bool rotate = true;
+    public bool rotate = false;
     public Camera cam;
+
+    public void OnStartFollowing()
+    {
+        rotate = true;
+    }
 
     private void FixedUpdate()
     {
-        Rotate();
+        if(rotate)
+            Rotate();
     }
 
     //Camera rotation stuff
@@ -19,17 +26,14 @@ public class PlayerLook : NetworkBehaviour
     {
         cam.transform.localEulerAngles = camRotation;
 
-        if (rotate)
+        if (Input.GetKey(KeyCode.A))
         {
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.Rotate(Vector3.down * sensitivity * Time.fixedDeltaTime);
-            }
+            transform.Rotate(Vector3.down * sensitivity * Time.fixedDeltaTime);
+        }
 
-            if(Input.GetKey(KeyCode.D))
-            {
-                transform.Rotate(Vector3.up * sensitivity * Time.fixedDeltaTime);
-            }
+        if(Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(Vector3.up * sensitivity * Time.fixedDeltaTime);
         }
     }
 
