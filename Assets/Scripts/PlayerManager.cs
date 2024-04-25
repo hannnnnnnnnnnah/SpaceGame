@@ -8,14 +8,16 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
     public float Health = 3f;
     public static GameObject LocalPlayerInstance;
 
+    //Values that will be synced over network
+    Quaternion latestRot;
+
     private void Awake()
     {
         if (photonView.IsMine)
         {
             PlayerManager.LocalPlayerInstance = this.gameObject;
         }
-        // #Critical
-        // we flag as don't destroy on load so that instance survives level synchronization, thus giving a seamless experience when levels load.
+
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -23,18 +25,14 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         Cursor.lockState = CursorLockMode.Confined;
 
-        PlayerLook _camera = this.gameObject.GetComponent<PlayerLook>();
+        PlayerLook playerLook = this.gameObject.GetComponent<PlayerLook>();
 
-        if (_camera != null)
+        if (playerLook != null)
         {
             if (photonView.IsMine)
             {
-                _camera.OnStartFollowing();
+                playerLook.OnStartFollowing();
             }
-        }
-        else
-        {
-            print("error");
         }
     }
 
@@ -47,21 +45,25 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
                 GameManager.instance.LeaveRoom();
             }
         }
+
+        if (!photonView.IsMine)
+        {
+            //Update remote player (smooth this, this looks good, at the cost of some accuracy)
+            //photonView.transform.rotation = Quaternion.Lerp(transform.rotation, latestRot, Time.deltaTime * 5);
+        }
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
-            // We own this player: send the others our data
-            stream.SendNext(Health);
-            stream.SendNext(transform.position);
+            //We own this player: send the others our data
+            //stream.SendNext(transform.rotation);
         }
         else
         {
-            // Network player, receive data
-            this.Health = (float)stream.ReceiveNext();
-            this.transform.position = (Vector3)stream.ReceiveNext();
+            //Network player, receive data
+            //latestRot = (Quaternion)stream.ReceiveNext();
         }
     }
 
@@ -69,6 +71,4 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         Health--;
     }
-
-
 }

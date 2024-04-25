@@ -12,10 +12,10 @@ public class PlayerEngage : MonoBehaviourPun
     private void Start()
     {
         if (RoleManager.instance.captain)
-            Captain.SetActive(true);
+            this.Captain.SetActive(true);
 
         if (RoleManager.instance.combat)
-            Combat.SetActive(true);
+            this.Combat.SetActive(true);
     }
 
     private void FixedUpdate()

@@ -1,14 +1,16 @@
 using UnityEngine;
 using Unity.Netcode;
 using Photon.Pun;
+using UnityEditor;
 
-public class PlayerLook : MonoBehaviourPun
+public class PlayerLook : MonoBehaviour
 {
-    [SerializeField] int minAngle, maxAngle, sensitivity;
-    private Vector3 camRotation;
+    [SerializeField] int sensitivity;
+
+    // cached transform of the target
+    Transform playerTransform;
 
     public bool rotate = false;
-    public Camera cam;
 
     public void OnStartFollowing()
     {
@@ -17,23 +19,23 @@ public class PlayerLook : MonoBehaviourPun
 
     private void FixedUpdate()
     {
-        if(rotate)
+        if (rotate)
             Rotate();
+        else
+            return; 
     }
 
     //Camera rotation stuff
     private void Rotate()
     {
-        cam.transform.localEulerAngles = camRotation;
-
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.down * sensitivity * Time.fixedDeltaTime);
+            this.transform.Rotate(Vector3.down * sensitivity * Time.fixedDeltaTime);
         }
 
         if(Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(Vector3.up * sensitivity * Time.fixedDeltaTime);
+            this.transform.Rotate(Vector3.up * sensitivity * Time.fixedDeltaTime);
         }
     }
 
