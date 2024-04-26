@@ -12,14 +12,11 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
 
     public static GameObject LocalPlayerInstance;
 
-    string test = "";
-    string netTest;
-
     private float healthSet;
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        UnityEngine.Cursor.lockState = CursorLockMode.Confined;
         transform.SetParent(ShipMove.instance.transform);
     }
 
@@ -31,15 +28,10 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
             Debug.Log(ShipMove.instance.health);
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            test = "change";
-        }
-
         if (photonView.IsMine)
         {
-            healthSet = ShipMove.instance.health;
-            healthText.text = healthSet.ToString();
+            this.healthSet = ShipMove.instance.health;
+            this.healthText.text = healthSet.ToString();
         }
     }
 
