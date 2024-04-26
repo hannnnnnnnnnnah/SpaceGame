@@ -1261,6 +1261,56 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5557108680045491522, guid: b540e8ac64235aa4b8c38e2afc1dd3ae,
         type: 3}
+    - target: {fileID: 7166973366804290982, guid: 3a5485a2075a6ca43bfddd8ce2ab1f05,
+        type: 3}
+      propertyPath: roleColors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166973366804290982, guid: 3a5485a2075a6ca43bfddd8ce2ab1f05,
+        type: 3}
+      propertyPath: spawnPositions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166973366804290982, guid: 3a5485a2075a6ca43bfddd8ce2ab1f05,
+        type: 3}
+      propertyPath: roleColors.Array.data[0].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166973366804290982, guid: 3a5485a2075a6ca43bfddd8ce2ab1f05,
+        type: 3}
+      propertyPath: roleColors.Array.data[0].g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166973366804290982, guid: 3a5485a2075a6ca43bfddd8ce2ab1f05,
+        type: 3}
+      propertyPath: roleColors.Array.data[0].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166973366804290982, guid: 3a5485a2075a6ca43bfddd8ce2ab1f05,
+        type: 3}
+      propertyPath: roleColors.Array.data[1].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166973366804290982, guid: 3a5485a2075a6ca43bfddd8ce2ab1f05,
+        type: 3}
+      propertyPath: roleColors.Array.data[1].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166973366804290982, guid: 3a5485a2075a6ca43bfddd8ce2ab1f05,
+        type: 3}
+      propertyPath: roleColors.Array.data[1].r
+      value: 0.9614266
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166973366804290982, guid: 3a5485a2075a6ca43bfddd8ce2ab1f05,
+        type: 3}
+      propertyPath: spawnPositions.Array.data[0]
+      value: 
+      objectReference: {fileID: 1504896831}
+    - target: {fileID: 7166973366804290982, guid: 3a5485a2075a6ca43bfddd8ce2ab1f05,
+        type: 3}
+      propertyPath: spawnPositions.Array.data[1]
+      value: 
+      objectReference: {fileID: 1993507157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

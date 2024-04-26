@@ -8,11 +8,12 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
-    public GameObject playerPrefab, spawn1, spawn2, spawn3, spawn4;
+    public GameObject playerPrefab;
+    public Transform[] spawnPositions;
+    public Color[] roleColors;
     public static GameManager instance;
 
     Vector3 spawnSet;
-    List<Player> spawnList;
 
     void Awake()
     {
@@ -24,26 +25,10 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        if (RoleManager.instance.captain)
-            spawnSet = spawn1.transform.position;
-
-        if (RoleManager.instance.combat)
-            spawnSet = spawn2.transform.position;
-
-        if (playerPrefab == null)
-        {
-            Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'", this);
-        }
-        else
-        {
-            PhotonNetwork.Instantiate(this.playerPrefab.name, spawnSet, Quaternion.identity, 0);
-
-            //if (PlayerManager.LocalPlayerInstance == null)
-            //{
-                // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-            //    PhotonNetwork.Instantiate(this.playerPrefab.name, spawnSet, Quaternion.identity, 0);
-            //}
-        }
+        int playerID = PhotonNetwork.LocalPlayer.ActorNumber - 1;
+        spawnSet = spawnPositions[playerID].position;
+        GameObject player = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnSet, Quaternion.identity, 0);
+        player.GetComponent<MeshRenderer>().material.color = roleColors[playerID];
     }
 
     // Called when the local player left the room. We need to load the launcher scene.
