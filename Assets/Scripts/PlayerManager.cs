@@ -28,11 +28,11 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
             Debug.Log(ShipMove.instance.health);
         }
 
-        if (photonView.IsMine)
+        /*if (photonView.IsMine)
         {
             this.healthSet = ShipMove.instance.health;
             this.healthText.text = healthSet.ToString();
-        }
+        }*/
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
