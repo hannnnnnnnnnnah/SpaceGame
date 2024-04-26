@@ -24,9 +24,9 @@ public class ShipMove : MonoBehaviour
     }
 
     
-    public void ChangeHealth(float h)
+    public void ChangeHealth()
     {
-        health = h;
-        Debug.Log("health");
+        health--;
+        Debug.Log(health);
     }
 }

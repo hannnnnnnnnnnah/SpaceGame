@@ -62,8 +62,6 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     public void UpdateHealth(float h)
     {
         healthSet = h;
-        this.healthText.text = healthSet.ToString();
-
-        Debug.Log("Change");
+        healthText.text = healthSet.ToString();
     }
 }
