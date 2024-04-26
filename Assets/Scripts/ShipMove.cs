@@ -20,8 +20,13 @@ public class ShipMove : MonoBehaviour
     private void FixedUpdate()
     {
         if (shipMove)
-        {
             transform.Translate(Vector3.back * Time.deltaTime * shipSpeed);
-        }
+    }
+
+    
+    public void ChangeHealth(float h)
+    {
+        health = h;
+        Debug.Log("health");
     }
 }

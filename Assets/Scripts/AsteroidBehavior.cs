@@ -1,6 +1,4 @@
 using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AsteroidBehavior : MonoBehaviour
@@ -14,7 +12,7 @@ public class AsteroidBehavior : MonoBehaviour
 
         if (other.CompareTag("Ship"))
         {
-            other.GetComponent<ShipMove>().health--;
+            ShipMove.instance.ChangeHealth(ShipMove.instance.health--);
             PhotonNetwork.Destroy(gameObject);
         }
     }

@@ -1,12 +1,13 @@
 using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
+using Photon.Realtime;
 using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 
-public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
+public class PlayerManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] TextMeshProUGUI healthText;
 
@@ -25,7 +26,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(ShipMove.instance.health);
+            Debug.Log(healthSet);
         }
 
         /*if (photonView.IsMine)
@@ -33,21 +34,9 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
             this.healthSet = ShipMove.instance.health;
             this.healthText.text = healthSet.ToString();
         }*/
-    }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        /*
-        if (stream.IsWriting)
-        {
-            //Send data
-            stream.SendNext(healthSet);
-        }
-        else 
-        {
-            // Network player, receive data
-            this.healthSet = (float)stream.ReceiveNext();
-        }*/
+
+        this.photonView.RPC("UpdateHealth", RpcTarget.All, ShipMove.instance.health);
     }
 
     public void MoveShip()
@@ -67,5 +56,14 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             GunShoot.instance.Shoot();
         }
+    }
+
+    [PunRPC]
+    public void UpdateHealth(float h)
+    {
+        healthSet = h;
+        this.healthText.text = healthSet.ToString();
+
+        Debug.Log("Change");
     }
 }

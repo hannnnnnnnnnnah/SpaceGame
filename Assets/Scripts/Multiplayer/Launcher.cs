@@ -63,6 +63,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     public void CreateRoom()
     {
         PhotonNetwork.CreateRoom(createInput.text);
+        Debug.Log(PhotonNetwork.CountOfRooms);
     }
     public void JoinRoom()
     {
