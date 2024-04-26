@@ -11,5 +11,11 @@ public class AsteroidBehavior : MonoBehaviour
         {
             PhotonNetwork.Destroy(gameObject);
         }
+
+        if (other.CompareTag("Ship"))
+        {
+            other.GetComponent<ShipMove>().health--;
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 }

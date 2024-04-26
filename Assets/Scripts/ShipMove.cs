@@ -1,12 +1,10 @@
-using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipMove : MonoBehaviour
 {
     public bool shipMove = false;
     float shipSpeed = 20;
+    public float health = 5;
 
     public static ShipMove instance;
 
@@ -23,7 +21,6 @@ public class ShipMove : MonoBehaviour
         if (shipMove)
         {
             transform.Translate(Vector3.back * Time.deltaTime * shipSpeed);
-            //Debug.Log(ship.transform.position);
         }
     }
 }
