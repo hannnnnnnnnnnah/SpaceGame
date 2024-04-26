@@ -710,7 +710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9156141170829097949
 Transform:
   m_ObjectHideFlags: 0
@@ -719,12 +719,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3002696155422446428}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -0, y: 2.3000002, z: -0.9939997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6824028300995216487}
+  m_Father: {fileID: 3201292346921226761}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &4901851226921503831
 Camera:
@@ -1673,9 +1673,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4310909387450231025}
-        m_TargetAssemblyTypeName: PlayerEngage, Assembly-CSharp
-        m_MethodName: ShipMove
+      - m_Target: {fileID: 8240733286238390197}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: MoveShip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1922,7 +1922,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 135085578013609806}
-  - {fileID: 6824028300995216487}
+  - {fileID: 9156141170829097949}
   - {fileID: 4811952338381938118}
   - {fileID: 3503298148587768759}
   - {fileID: 3966166123632007532}
@@ -1941,6 +1941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 100
+  cam: {fileID: 3002696155422446428}
   rotate: 1
 --- !u!114 &4310909387450231025
 MonoBehaviour:
@@ -1956,9 +1957,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Captain: {fileID: 3627306222811776827}
   Combat: {fileID: 9017359867623907797}
-  bullet: {fileID: 562144234764245747, guid: 97aebd09c610b9a4c9eb36854f0538da, type: 3}
-  gun: {fileID: 0}
-  ship: {fileID: 0}
 --- !u!95 &827612937264658523
 Animator:
   serializedVersion: 5
@@ -2010,7 +2008,7 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 3
   OwnershipTransfer: 0
-  observableSearch: 0
+  observableSearch: 1
   ObservedComponents:
   - {fileID: 8240733286238390197}
   - {fileID: 1899318999066889877}
@@ -2417,7 +2415,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8240733286238390197}
         m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-        m_MethodName: DecreaseHealth
+        m_MethodName: Shoot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2590,38 +2588,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00009384006, y: 0.03216342, z: 0.0009459546}
     m_Extent: {x: 0.010188513, y: 0.010436072, z: 0.006712421}
   m_DirtyAABB: 0
---- !u!1 &6519149200934800476
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6824028300995216487}
-  m_Layer: 0
-  m_Name: CamHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6824028300995216487
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6519149200934800476}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 2.3, z: -0.994}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 9156141170829097949}
-  m_Father: {fileID: 3201292346921226761}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &6628197054540812822
 GameObject:
   m_ObjectHideFlags: 0

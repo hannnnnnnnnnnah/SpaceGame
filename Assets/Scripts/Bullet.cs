@@ -1,15 +1,15 @@
+using Photon.Pun;
 using System.Collections;
-using Unity.Netcode;
 using UnityEngine;
 
-public class Bullet : NetworkBehaviour
+public class Bullet : MonoBehaviour
 {
     float speed = 10;
     float lifespan = 1.5f;
 
     private void Start()
     {
-        //StartCoroutine(KillSelf());
+        StartCoroutine(KillSelf());
     }
 
     private void FixedUpdate()
@@ -20,6 +20,6 @@ public class Bullet : NetworkBehaviour
     IEnumerator KillSelf()
     {
         yield return new WaitForSeconds(lifespan);
-        NetworkBehaviour.Destroy(gameObject);
+        PhotonNetwork.Destroy(gameObject);
     }
 }

@@ -7,22 +7,21 @@ public class PlayerLook : MonoBehaviour
 {
     [SerializeField] int sensitivity;
 
-    // cached transform of the target
-    Transform playerTransform;
+    private PhotonView photonView;
+    [SerializeField] GameObject cam;
 
-    public bool rotate = false;
+    public bool rotate = true;
 
-    public void OnStartFollowing()
+    private void Start()
     {
-        rotate = true;
+        photonView = GetComponent<PhotonView>();
+        this.cam.SetActive(true);
     }
 
     private void FixedUpdate()
     {
-        if (rotate)
+        if (photonView.IsMine)
             Rotate();
-        else
-            return; 
     }
 
     //Camera rotation stuff

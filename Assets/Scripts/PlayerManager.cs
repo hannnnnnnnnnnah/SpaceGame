@@ -2,38 +2,30 @@ using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
 using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
 {
     public float Health = 3f;
     public static GameObject LocalPlayerInstance;
 
-    //Values that will be synced over network
-    Quaternion latestRot;
+    string test = "";
+    string netTest;
 
     private void Awake()
     {
-        if (photonView.IsMine)
-        {
-            PlayerManager.LocalPlayerInstance = this.gameObject;
-        }
+        //if (photonView.IsMine)
+        //{
+        //    PlayerManager.LocalPlayerInstance = this.gameObject;
+        //}
 
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
-
-        PlayerLook playerLook = this.gameObject.GetComponent<PlayerLook>();
-
-        if (playerLook != null)
-        {
-            if (photonView.IsMine)
-            {
-                playerLook.OnStartFollowing();
-            }
-        }
+        transform.SetParent(ShipMove.instance.transform);
     }
 
     private void Update()
@@ -46,11 +38,16 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
             }
         }
 
-        if (!photonView.IsMine)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Update remote player (smooth this, this looks good, at the cost of some accuracy)
-            //photonView.transform.rotation = Quaternion.Lerp(transform.rotation, latestRot, Time.deltaTime * 5);
+            Debug.Log(netTest);
         }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            test = "change";
+        }
+
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -58,17 +55,31 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
         if (stream.IsWriting)
         {
             //We own this player: send the others our data
-            //stream.SendNext(transform.rotation);
+            stream.SendNext(test);
         }
         else
         {
             //Network player, receive data
-            //latestRot = (Quaternion)stream.ReceiveNext();
+            this.netTest = (string)stream.ReceiveNext();
         }
     }
 
-    public void DecreaseHealth()
+    public void MoveShip()
     {
-        Health--;
+        if (photonView.IsMine)
+        {
+            if (!ShipMove.instance.shipMove)
+                ShipMove.instance.shipMove = true;
+            else
+                ShipMove.instance.shipMove = false;
+        }
+    }
+
+    public void Shoot()
+    {
+        if(photonView.IsMine)
+        {
+            GunShoot.instance.Shoot();
+        }
     }
 }
