@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             Debug.Log("this is running");
             //PhotonNetwork.Instantiate(this.playerPrefab.name, spawnSet, Quaternion.identity, 0);
-            LoadArena();
+            //LoadArena();
         }
     }
 
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient)
         {
-            LoadArena();
+            //LoadArena();
         }
     }
 }

@@ -11,7 +11,10 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     void Awake()
     {
-        PhotonNetwork.AutomaticallySyncScene = true;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.AutomaticallySyncScene = true;
+        }
     }
 
     public override void OnConnectedToMaster()
