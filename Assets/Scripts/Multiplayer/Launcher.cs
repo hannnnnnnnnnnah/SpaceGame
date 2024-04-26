@@ -1,9 +1,12 @@
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
+    public InputField createInput, joinInput;
     string gameVersion = "1";
     bool isConnecting;
 
@@ -19,7 +22,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        PhotonNetwork.JoinRoom("Main");
+        //PhotonNetwork.JoinRoom("Main");
     }
 
     public override void OnDisconnected(DisconnectCause cause)
@@ -56,5 +59,13 @@ public class Launcher : MonoBehaviourPunCallbacks
             PhotonNetwork.ConnectUsingSettings();
             PhotonNetwork.GameVersion = gameVersion;
         }
+    }
+    public void CreateRoom()
+    {
+        PhotonNetwork.CreateRoom(createInput.text);
+    }
+    public void JoinRoom()
+    {
+        PhotonNetwork.JoinRoom(joinInput.text);
     }
 }
