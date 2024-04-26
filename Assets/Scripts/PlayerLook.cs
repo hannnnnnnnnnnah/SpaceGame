@@ -15,7 +15,9 @@ public class PlayerLook : MonoBehaviour
     private void Start()
     {
         photonView = GetComponent<PhotonView>();
-        this.cam.SetActive(true);
+        
+        if(!photonView.IsMine)
+            Destroy(cam);
     }
 
     private void FixedUpdate()
