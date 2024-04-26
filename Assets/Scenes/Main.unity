@@ -1442,6 +1442,7 @@ GameObject:
   - component: {fileID: 919132148011701916}
   - component: {fileID: 919132148011701915}
   - component: {fileID: 919132148011701914}
+  - component: {fileID: 919132148011701917}
   m_Layer: 0
   m_Name: ship
   m_TagString: Ship
@@ -1484,6 +1485,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 919132148011701916}
   - {fileID: 919132148011701914}
   sceneViewId: 1
   InstantiationId: 0
@@ -1501,6 +1503,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipMove: 0
+  health: 5
+--- !u!65 &919132148011701917
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148011701913}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.281045, y: 6.780048, z: 0.526319}
+  m_Center: {x: 0.021005154, y: 0.4905622, z: -6.0983267}
 --- !u!64 &3992821089102439179
 MeshCollider:
   m_ObjectHideFlags: 0

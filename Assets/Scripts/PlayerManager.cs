@@ -1,26 +1,21 @@
 using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
 using System.Diagnostics;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 
 public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
 {
-    public float Health = 3f;
+    [SerializeField] TextMeshProUGUI healthText;
+
     public static GameObject LocalPlayerInstance;
 
     string test = "";
     string netTest;
 
-    private void Awake()
-    {
-        //if (photonView.IsMine)
-        //{
-        //    PlayerManager.LocalPlayerInstance = this.gameObject;
-        //}
-
-        //DontDestroyOnLoad(this.gameObject);
-    }
+    private float healthSet;
 
     private void Start()
     {
@@ -28,19 +23,12 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
         transform.SetParent(ShipMove.instance.transform);
     }
 
+
     private void Update()
     {
-        if (photonView.IsMine)
-        {
-            if (Health <= 0f)
-            {
-                GameManager.instance.LeaveRoom();
-            }
-        }
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(netTest);
+            Debug.Log(ShipMove.instance.health);
         }
 
         if (Input.GetKeyDown(KeyCode.M))
@@ -48,20 +36,26 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
             test = "change";
         }
 
+        if (photonView.IsMine)
+        {
+            healthSet = ShipMove.instance.health;
+            healthText.text = healthSet.ToString();
+        }
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
+        /*
         if (stream.IsWriting)
         {
-            //We own this player: send the others our data
-            stream.SendNext(test);
+            //Send data
+            stream.SendNext(healthSet);
         }
-        else
+        else 
         {
-            //Network player, receive data
-            this.netTest = (string)stream.ReceiveNext();
-        }
+            // Network player, receive data
+            this.healthSet = (float)stream.ReceiveNext();
+        }*/
     }
 
     public void MoveShip()

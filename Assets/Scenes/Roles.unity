@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 495801128}
-  m_IndirectSpecularColor: {r: 0.0029203617, g: 0.0019177032, b: 0.0021366107, a: 1}
+  m_IndirectSpecularColor: {r: 0.0029204423, g: 0.001918028, b: 0.0021366684, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -701,6 +701,11 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1304448357
       objectReference: {fileID: 0}
+    - target: {fileID: 9054310241107238435, guid: b540e8ac64235aa4b8c38e2afc1dd3ae,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4310909387450231025, guid: b540e8ac64235aa4b8c38e2afc1dd3ae, type: 3}
     - {fileID: 8365998617387035524, guid: b540e8ac64235aa4b8c38e2afc1dd3ae, type: 3}
@@ -1075,6 +1080,11 @@ PrefabInstance:
         type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1289594450
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054310241107238435, guid: b540e8ac64235aa4b8c38e2afc1dd3ae,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1905,8 +1915,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0407dde83f4e5b547a5aa3d28e59f8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 562144234764245747, guid: 97aebd09c610b9a4c9eb36854f0538da, type: 3}
-  Ship: {fileID: 919132148011701913}
+  playerPrefab: {fileID: 0}
+  spawnPositions: []
+  roleColors: []
 --- !u!4 &1322053096
 Transform:
   m_ObjectHideFlags: 0
