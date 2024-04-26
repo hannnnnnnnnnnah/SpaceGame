@@ -19,24 +19,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     {
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
         transform.SetParent(ShipMove.instance.transform);
-    }
-
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log(healthSet);
-        }
-
-        /*if (photonView.IsMine)
-        {
-            this.healthSet = ShipMove.instance.health;
-            this.healthText.text = healthSet.ToString();
-        }*/
-
-
-        this.photonView.RPC("UpdateHealth", RpcTarget.All, ShipMove.instance.health);
+        ShipMove.instance.HealthChanged.AddListener(UpdateVariables);
     }
 
     public void MoveShip()
@@ -53,10 +36,15 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     public void Shoot()
     {
         if(photonView.IsMine)
-        {
             GunShoot.instance.Shoot();
-        }
     }
+
+    void UpdateVariables()
+    {
+        photonView.RPC("UpdateHealth", RpcTarget.All, ShipMove.instance.health);
+    }
+
+    
 
     [PunRPC]
     public void UpdateHealth(float h)

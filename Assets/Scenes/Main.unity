@@ -1485,7 +1485,6 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 919132148011701916}
   - {fileID: 919132148011701914}
   sceneViewId: 1
   InstantiationId: 0
@@ -1504,6 +1503,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipMove: 0
   health: 5
+  HealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &919132148011701917
 BoxCollider:
   m_ObjectHideFlags: 0

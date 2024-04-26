@@ -1,11 +1,14 @@
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShipMove : MonoBehaviour
 {
     public bool shipMove = false;
     float shipSpeed = 20;
     public float health = 5;
+
+    public UnityEvent HealthChanged;
 
     public static ShipMove instance;
 
@@ -27,6 +30,6 @@ public class ShipMove : MonoBehaviour
     public void ChangeHealth()
     {
         health--;
-        Debug.Log(health);
+        HealthChanged.Invoke();
     }
 }
