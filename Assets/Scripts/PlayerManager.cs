@@ -10,6 +10,9 @@ using Debug = UnityEngine.Debug;
 public class PlayerManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] TextMeshProUGUI healthText;
+    public Material[] roleColors;
+
+    [SerializeField] GameObject body;
 
     public static GameObject LocalPlayerInstance;
 
@@ -20,6 +23,9 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
         transform.SetParent(ShipMove.instance.transform);
         ShipMove.instance.HealthChanged.AddListener(UpdateVariables);
+
+        int playerID = PhotonNetwork.LocalPlayer.ActorNumber - 1;
+        this.body.GetComponent<MeshRenderer>().material = roleColors[playerID];
     }
 
     public void MoveShip()

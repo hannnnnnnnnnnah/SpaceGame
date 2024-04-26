@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 {
     public GameObject playerPrefab;
     public Transform[] spawnPositions;
-    public Color[] roleColors;
+    //public Color[] roleColors;
     public static GameManager instance;
     RoleManager roleManager => RoleManager.instance;
 
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         int playerID = PhotonNetwork.LocalPlayer.ActorNumber - 1;
         spawnSet = spawnPositions[playerID].position;
         GameObject player = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnSet, Quaternion.identity, 0);
-        player.GetComponent<MeshRenderer>().material.color = roleColors[playerID];
+        //player.GetComponent<MeshRenderer>().material.color = roleColors[playerID];
         if (playerID == 0)
         {
             roleManager.captain = true;

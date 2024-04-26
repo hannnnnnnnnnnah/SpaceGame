@@ -1364,6 +1364,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7166973366804290982, guid: 3a5485a2075a6ca43bfddd8ce2ab1f05,
         type: 3}
+      propertyPath: roleColors.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0971c3e0aa525e74398ac0d03a56a33b, type: 2}
+    - target: {fileID: 7166973366804290982, guid: 3a5485a2075a6ca43bfddd8ce2ab1f05,
+        type: 3}
+      propertyPath: roleColors.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b253c7d302df3042978b4bc396d5d5d, type: 2}
+    - target: {fileID: 7166973366804290982, guid: 3a5485a2075a6ca43bfddd8ce2ab1f05,
+        type: 3}
       propertyPath: spawnPositions.Array.size
       value: 2
       objectReference: {fileID: 0}
