@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         ShipMove.instance.HealthChanged.AddListener(UpdateVariables);
 
         int playerID = PhotonNetwork.LocalPlayer.ActorNumber - 1;
-        this.body.GetComponent<MeshRenderer>().material = roleColors[playerID];
+        //this.body.GetComponent<MeshRenderer>().material = roleColors[playerID];
     }
 
     public void MoveShip()
