@@ -7,10 +7,10 @@ public class PlayerEngage : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        if (RoleManager.instance.captain)
+        if (RoleManager.instance.captain && photonView.IsMine)
             this.Captain.SetActive(true);
 
-        if (RoleManager.instance.combat)
+        if (RoleManager.instance.combat && photonView.IsMine)
             this.Combat.SetActive(true);
     }
 }

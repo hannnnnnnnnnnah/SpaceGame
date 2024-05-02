@@ -1,6 +1,7 @@
 using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
 using Photon.Realtime;
+using System.Collections;
 using System.Diagnostics;
 using TMPro;
 using UnityEngine;
@@ -12,11 +13,12 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     [SerializeField] TextMeshProUGUI healthText;
     public Material[] roleColors;
 
-    [SerializeField] GameObject body;
-
+    [SerializeField] GameObject body, button, coolText;
     public static GameObject LocalPlayerInstance;
 
     private float healthSet;
+
+    float limit, cooldown = 5;
 
     private void Start()
     {
@@ -41,16 +43,29 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     public void Shoot()
     {
-        if(photonView.IsMine)
-            GunShoot.instance.Shoot();
+        if (photonView.IsMine && limit > 0)
+        {
+            GunShoot.instance.Shoot(); 
+            limit--;
+        }
+        else
+            StartCoroutine(CoolingDown());
+    }
+
+    IEnumerator CoolingDown()
+    {
+        button.SetActive(false);
+        coolText.SetActive(true);
+        yield return new WaitForSeconds(cooldown);
+        button.SetActive(true);
+        coolText.SetActive(false);
+        limit = 5;
     }
 
     void UpdateVariables()
     {
         photonView.RPC("UpdateHealth", RpcTarget.All, ShipMove.instance.health);
     }
-
-    
 
     [PunRPC]
     public void UpdateHealth(float h)

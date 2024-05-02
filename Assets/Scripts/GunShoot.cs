@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 
 public class GunShoot : MonoBehaviour
@@ -17,6 +18,6 @@ public class GunShoot : MonoBehaviour
 
     public void Shoot()
     {
-        PhotonNetwork.Instantiate(this.bullet.name, transform.position, transform.rotation);
+            PhotonNetwork.Instantiate(this.bullet.name, transform.position, transform.rotation);
     }
 }

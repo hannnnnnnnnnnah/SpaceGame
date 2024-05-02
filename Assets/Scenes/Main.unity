@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 495801128}
-  m_IndirectSpecularColor: {r: 0.0029204423, g: 0.001918028, b: 0.0021366684, a: 1}
+  m_IndirectSpecularColor: {r: 0.0029203617, g: 0.0019177032, b: 0.0021366107, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1242,7 +1242,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4070460456344218399}
-  m_Mesh: {fileID: 4711208715938537054, guid: e34df84e73be89f47960b28204641f8a, type: 3}
+  m_Mesh: {fileID: 4711208715938537054, guid: ca7dcc659fdbba045800c354ffff92f5, type: 3}
 --- !u!4 &543450651662830627
 Transform:
   m_ObjectHideFlags: 0
@@ -1410,7 +1410,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0.43, y: 4.41, z: 31.97}
-  m_LocalScale: {x: 9.24, y: 8.226782, z: 7.392043}
+  m_LocalScale: {x: 777.50006, y: 692.2428, z: 622.00366}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -1557,8 +1557,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.3491845, y: 2.239295, z: 2.660113}
-  m_Center: {x: -0.055019494, y: -0.0033560388, z: -0.020033298}
+  m_Size: {x: 0.028214805, y: 0.03375396, z: 0.032725543}
+  m_Center: {x: -0.00013642755, y: -0.0011230757, z: 0.002684398}
 --- !u!1 &4424396827403183082
 GameObject:
   m_ObjectHideFlags: 0
