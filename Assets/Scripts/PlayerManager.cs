@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     private float healthSet;
 
-    float limit, cooldown = 5;
+    float bullets = 5;
 
     private void Start()
     {
@@ -43,23 +43,19 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     public void Shoot()
     {
-        if (photonView.IsMine && limit > 0)
+        if (photonView.IsMine && bullets > 0)
         {
-            GunShoot.instance.Shoot(); 
-            limit--;
+            GunShoot.instance.Shoot();
+            bullets--;
         }
         else
-            StartCoroutine(CoolingDown());
+            BulletsOut();
     }
 
-    IEnumerator CoolingDown()
+    public void BulletsOut()
     {
         button.SetActive(false);
         coolText.SetActive(true);
-        yield return new WaitForSeconds(cooldown);
-        button.SetActive(true);
-        coolText.SetActive(false);
-        limit = 5;
     }
 
     void UpdateVariables()
