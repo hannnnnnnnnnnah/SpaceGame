@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
             Financials.instance.MoneyChanged.AddListener(MoneyUpdater);
 
         int playerID = PhotonNetwork.LocalPlayer.ActorNumber - 1;
-        //this.body.GetComponent<MeshRenderer>().material = roleColors[playerID];
+        body.GetComponent<SkinnedMeshRenderer>().material = roleColors[playerID];
     }
 
     public void MoveShip()
