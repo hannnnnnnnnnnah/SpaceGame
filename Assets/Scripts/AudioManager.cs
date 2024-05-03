@@ -18,12 +18,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void PlayAudioClip(string clipName)
     {
         AudioClip clip = cliptionary[clipName];

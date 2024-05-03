@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System;
 using UnityEngine;
 
 public class AsteroidBehavior : MonoBehaviour

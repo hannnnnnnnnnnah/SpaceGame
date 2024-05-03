@@ -555,8 +555,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7368424302639799065}
-        m_TargetAssemblyTypeName: Financials, Assembly-CSharp
+      - m_Target: {fileID: 8120463821828476244}
+        m_TargetAssemblyTypeName: FinancialManager, Assembly-CSharp
         m_MethodName: BuyBullets
         m_Mode: 1
         m_Arguments:
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: WELCOME ABOARD COMBAT SPECIALIST
+  m_text: WELCOME ABOARD FINANCIAL ADVISOR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -3378,7 +3378,6 @@ GameObject:
   - component: {fileID: 165291708617954153}
   - component: {fileID: 7499952056881532678}
   - component: {fileID: 2138515477537732216}
-  - component: {fileID: 7368424302639799065}
   m_Layer: 5
   m_Name: Financial
   m_TagString: Untagged
@@ -3485,24 +3484,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 4972549098673359652}
   startMessage: {fileID: 4016761213611010227}
---- !u!114 &7368424302639799065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2908508536494301720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9421aa0a679b4f542a6715ca50e61398, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mineralText: {fileID: 1048577542552291664}
-  money: 500
-  mineralCount: 0
-  MoneyChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3002696155422446428
 GameObject:
   m_ObjectHideFlags: 0
@@ -5907,6 +5888,7 @@ GameObject:
   - component: {fileID: 9054310241107238435}
   - component: {fileID: 1899318999066889877}
   - component: {fileID: 1063485198793116131}
+  - component: {fileID: 8120463821828476244}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6068,6 +6050,19 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
+--- !u!114 &8120463821828476244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5557108680045491522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83bd04ca7d1af0c459a17e2af690f50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mineralText: {fileID: 1048577542552291664}
 --- !u!1 &5574985223293116306
 GameObject:
   m_ObjectHideFlags: 0
@@ -7447,9 +7442,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2908508536494301720}
-        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 8120463821828476244}
+        m_TargetAssemblyTypeName: FinancialManager, Assembly-CSharp
+        m_MethodName: SellMinerals
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -6,11 +6,11 @@ using UnityEngine.Events;
 
 public class Financials : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI mineralText;
     public float money = 500;
     public float mineralCount;
 
     public UnityEvent MoneyChanged;
+    public UnityEvent MineralCountChanged;
 
     public static Financials instance;
 
@@ -22,12 +22,6 @@ public class Financials : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void AddMineralCount(float m)
-    {
-        mineralCount += m;
-        mineralText.text = mineralCount.ToString();
-    }
-
     public void BuyBullets()
     {
         GunShoot.instance.bullets += 5;
@@ -36,10 +30,9 @@ public class Financials : MonoBehaviour
         MoneyChanged.Invoke();
     }
 
-    public void SellMinerals()
+    public void AddMineralCount(float m)
     {
-        money += mineralCount;
-        MoneyChanged.Invoke();
-        mineralCount = 0;
+        mineralCount += m;
+        MineralCountChanged.Invoke();
     }
 }

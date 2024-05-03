@@ -24,6 +24,7 @@ public class GunShoot : MonoBehaviour
     public void Shoot()
     {
         PhotonNetwork.Instantiate(this.bullet.name, transform.position, transform.rotation);
+        AudioManager.Instance.OnShoot();
         bullets--;
         BulletsChanged.Invoke();
     }
