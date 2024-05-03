@@ -10,21 +10,23 @@ using Debug = UnityEngine.Debug;
 
 public class PlayerManager : MonoBehaviourPunCallbacks
 {
-    [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] TextMeshProUGUI healthText, bulletText, moneyText;
     public Material[] roleColors;
 
     [SerializeField] GameObject body, button, coolText;
     public static GameObject LocalPlayerInstance;
 
-    private float healthSet;
-
-    float bullets = 5;
+    private float healthSet, bulletSet, moneySet;
 
     private void Start()
     {
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
         transform.SetParent(ShipMove.instance.transform);
-        ShipMove.instance.HealthChanged.AddListener(UpdateVariables);
+        ShipMove.instance.HealthChanged.AddListener(HealthUpdater);
+        GunShoot.instance.BulletsChanged.AddListener(BulletUpdater);
+
+        if(RoleManager.instance.financial)
+            Financials.instance.MoneyChanged.AddListener(MoneyUpdater);
 
         int playerID = PhotonNetwork.LocalPlayer.ActorNumber - 1;
         //this.body.GetComponent<MeshRenderer>().material = roleColors[playerID];
@@ -43,10 +45,9 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     public void Shoot()
     {
-        if (photonView.IsMine && bullets > 0)
+        if (photonView.IsMine && GunShoot.instance.bullets > 0)
         {
             GunShoot.instance.Shoot();
-            bullets--;
         }
         else
             BulletsOut();
@@ -58,9 +59,19 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         coolText.SetActive(true);
     }
 
-    void UpdateVariables()
+    void HealthUpdater()
     {
         photonView.RPC("UpdateHealth", RpcTarget.All, ShipMove.instance.health);
+    }
+
+    void BulletUpdater()
+    {
+        photonView.RPC("UpdateBullets", RpcTarget.All, GunShoot.instance.bullets);
+    }
+
+    void MoneyUpdater()
+    {
+        photonView.RPC("UpdateMoney", RpcTarget.All, Financials.instance.money);
     }
 
     [PunRPC]
@@ -68,5 +79,19 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     {
         healthSet = h;
         healthText.text = healthSet.ToString();
+    }
+
+    [PunRPC]
+    public void UpdateBullets(float b)
+    {
+        bulletSet = b;
+        bulletText.text = bulletSet.ToString();
+    }
+
+    [PunRPC]
+    public void UpdateMoney(float m)
+    {
+        moneySet = m;
+        moneyText.text = moneySet.ToString();
     }
 }

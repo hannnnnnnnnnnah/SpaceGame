@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoleManager : MonoBehaviour
 {
     public static RoleManager instance;
-    public bool captain, combat;
+    public bool captain, combat, financial;
 
     void Awake()
     {

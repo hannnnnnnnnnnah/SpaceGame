@@ -38,6 +38,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             roleManager.combat = true;
         }
+        if (playerID == 2)
+        {
+            roleManager.financial = true;
+        }
     }
 
     // Called when the local player left the room. We need to load the launcher scene.

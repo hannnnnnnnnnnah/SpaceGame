@@ -3,7 +3,7 @@ using Photon.Pun;
 
 public class PlayerEngage : MonoBehaviourPunCallbacks
 {
-    [SerializeField] GameObject Captain, Combat;
+    [SerializeField] GameObject Captain, Combat, Financial;
 
     private void Start()
     {
@@ -12,5 +12,8 @@ public class PlayerEngage : MonoBehaviourPunCallbacks
 
         if (RoleManager.instance.combat && photonView.IsMine)
             this.Combat.SetActive(true);
+
+        if (RoleManager.instance.financial && photonView.IsMine)
+            this.Financial.SetActive(true);
     }
 }

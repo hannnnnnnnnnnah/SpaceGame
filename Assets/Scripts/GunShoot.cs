@@ -1,10 +1,15 @@
 using Photon.Pun;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GunShoot : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
+
+    public float bullets = 10;
+
+    public UnityEvent BulletsChanged;
 
     public static GunShoot instance;
 
@@ -18,6 +23,8 @@ public class GunShoot : MonoBehaviour
 
     public void Shoot()
     {
-            PhotonNetwork.Instantiate(this.bullet.name, transform.position, transform.rotation);
+        PhotonNetwork.Instantiate(this.bullet.name, transform.position, transform.rotation);
+        bullets--;
+        BulletsChanged.Invoke();
     }
 }

@@ -7,6 +7,7 @@ public class AsteroidBehavior : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
+            Financials.instance.AddMineralCount(50);
             PhotonNetwork.Destroy(gameObject);
         }
 
