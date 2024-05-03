@@ -31,6 +31,10 @@ public class AudioManager : MonoBehaviour
     {
         PlayAudioClip("shipStop");
     }
+    public void OnShipHit()
+    {
+        PlayAudioClip("shipHit");
+    }
     public void OnDoorOpen()
     {
         PlayAudioClip("doorOpen");
