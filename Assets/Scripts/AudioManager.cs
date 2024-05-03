@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
     public AudioSource source;
     public List<AudioClip> audioClips;
-    public Dictionary<string, AudioClip> cliptionary;
+    public Dictionary<string, AudioClip> cliptionary = new Dictionary<string, AudioClip>();
     void Start()
     {
         for (int i = 0; i < audioClips.Count; i++)
