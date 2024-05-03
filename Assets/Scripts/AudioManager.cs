@@ -23,6 +23,14 @@ public class AudioManager : MonoBehaviour
         AudioClip clip = cliptionary[clipName];
         source.PlayOneShot(clip);
     }
+    public void OnShipMove()
+    {
+        PlayAudioClip("shipMove");
+    }
+    public void OnShipStop()
+    {
+        PlayAudioClip("shipStop");
+    }
     public void OnDoorOpen()
     {
         PlayAudioClip("doorOpen");
@@ -30,6 +38,10 @@ public class AudioManager : MonoBehaviour
     public void OnShoot()
     {
         PlayAudioClip("shoot");
+    }
+    public void OnPopUp()
+    {
+        PlayAudioClip("popUp");
     }
     public void OnExplosion()
     {
@@ -50,5 +62,9 @@ public class AudioManager : MonoBehaviour
     public void OnNeutralButtonPress()
     {
         PlayAudioClip("neutralButton");
+    }
+    public void OnNegativeEvent()
+    {
+        PlayAudioClip("negativeBuzzer");
     }
 }
