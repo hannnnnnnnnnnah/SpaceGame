@@ -46,6 +46,8 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         if (photonView.IsMine && GunShoot.instance.bullets > 0)
         {
             GunShoot.instance.Shoot();
+            coolText.SetActive(false);
+            //button.SetActive(true);
         }
         else
             BulletsOut();
@@ -53,13 +55,8 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     public void BulletsOut()
     {
-        button.SetActive(false);
+        //button.SetActive(false);
         coolText.SetActive(true);
-    }
-
-    void HealthUpdater()
-    {
-        photonView.RPC("UpdateHealth", RpcTarget.All, ShipMove.instance.health);
     }
 
     void BulletUpdater()
@@ -70,6 +67,11 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     void MoneyUpdater()
     {
         photonView.RPC("UpdateMoney", RpcTarget.All, Financials.instance.money);
+    }
+
+    void HealthUpdater()
+    {
+        photonView.RPC("UpdateHealth", RpcTarget.All, ShipMove.instance.health);
     }
 
     [PunRPC]

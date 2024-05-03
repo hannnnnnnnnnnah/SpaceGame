@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    float speed = 10;
-    float lifespan = .5f;
+    float speed = 7;
+    float lifespan = .25f;
 
     private void Start()
     {

@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Pun.Demo.Asteroids;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,8 +25,16 @@ public class GunShoot : MonoBehaviour
     public void Shoot()
     {
         PhotonNetwork.Instantiate(this.bullet.name, transform.position, transform.rotation);
-        AudioManager.Instance.OnShoot();
-        bullets--;
+
+        ChangeBullets(-1);
+        //bullets--;
+        //BulletsChanged.Invoke();
+        //AudioManager.Instance.OnShoot();
+    }
+
+    public void ChangeBullets(float b)
+    {
+        bullets += b;
         BulletsChanged.Invoke();
     }
 }

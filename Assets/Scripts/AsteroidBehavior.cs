@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AsteroidBehavior : MonoBehaviour
 {
+    public float speed = 20;
+    public float trailLifetime;
+    TrailRenderer trailRenderer => GetComponent<TrailRenderer>();
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bullet"))
@@ -17,5 +21,15 @@ public class AsteroidBehavior : MonoBehaviour
             ShipMove.instance.ChangeHealth();
             PhotonNetwork.Destroy(gameObject);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (trailRenderer != null)
+        {
+            trailRenderer.time = trailLifetime;
+        }
+
+        transform.Translate(Vector3.right * Time.deltaTime * speed);
     }
 }

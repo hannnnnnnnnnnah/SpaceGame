@@ -24,8 +24,6 @@ public class Financials : MonoBehaviour
 
     public void BuyBullets()
     {
-        GunShoot.instance.bullets += 5;
-        GunShoot.instance.BulletsChanged.Invoke();
         money -= 50;
         MoneyChanged.Invoke();
     }

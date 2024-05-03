@@ -4194,7 +4194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1774691470040953686
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5037,7 +5037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5116662493139769140
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5984,8 +5984,9 @@ MonoBehaviour:
   bulletText: {fileID: 5823846588410650867}
   moneyText: {fileID: 7416278057294842602}
   roleColors:
-  - {fileID: 2100000, guid: 0b253c7d302df3042978b4bc396d5d5d, type: 2}
+  - {fileID: 2100000, guid: 0971c3e0aa525e74398ac0d03a56a33b, type: 2}
   - {fileID: 2100000, guid: 9843c9113027fa94f84de1b540dbe336, type: 2}
+  - {fileID: 2100000, guid: 0b253c7d302df3042978b4bc396d5d5d, type: 2}
   body: {fileID: 3569278973153118338}
   button: {fileID: 5770398302113330843}
   coolText: {fileID: 6920873607018891665}
@@ -7357,7 +7358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 304, y: -138}
+  m_AnchoredPosition: {x: 304, y: -229}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2299615533039463872
