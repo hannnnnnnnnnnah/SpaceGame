@@ -31,5 +31,9 @@ public class ShipMove : MonoBehaviour
     {
         health--;
         HealthChanged.Invoke();
+        if (health <= 0)
+        {
+            GameManager.instance.LoseGame();
+        }
     }
 }

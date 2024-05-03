@@ -54,6 +54,14 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LeaveRoom();
     }
+    public void LoseGame()
+    {
+        SceneManager.LoadScene("Lose");
+    }
+    public void WinGame()
+    {
+        SceneManager.LoadScene("Win");
+    }
 
     void LoadArena()
     {
