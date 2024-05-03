@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager Instance;
     public AudioSource source;
     public List<AudioClip> audioClips;
     public Dictionary<string, AudioClip> cliptionary;
@@ -56,5 +57,4 @@ public class AudioManager : MonoBehaviour
     {
         PlayAudioClip("neutralButton");
     }
-    public void 
 }
