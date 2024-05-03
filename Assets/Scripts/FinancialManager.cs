@@ -6,6 +6,7 @@ using UnityEngine;
 public class FinancialManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI mineralText;
+    [SerializeField] GameObject brokeText;
 
     private void Start()
     {
@@ -28,6 +29,15 @@ public class FinancialManager : MonoBehaviour
 
     public void BuyBullets()
     {
-        Financials.instance.BuyBullets();
+        if (Financials.instance.money > 0)
+        {
+            Financials.instance.BuyBullets();
+            GunShoot.instance.ChangeBullets(5);
+            brokeText.SetActive(false);
+        }
+        else
+        {
+            brokeText.SetActive(true);
+        }
     }
 }

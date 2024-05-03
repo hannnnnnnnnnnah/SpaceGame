@@ -56,11 +56,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     public void LoseGame()
     {
-        SceneManager.LoadScene("Lose");
+        PhotonNetwork.LoadLevel("Lose");
     }
     public void WinGame()
     {
-        SceneManager.LoadScene("Win");
+        PhotonNetwork.LoadLevel("Win");
     }
 
     void LoadArena()

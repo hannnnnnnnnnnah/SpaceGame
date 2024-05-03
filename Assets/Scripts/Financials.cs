@@ -1,10 +1,11 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Financials : MonoBehaviour
+public class Financials : MonoBehaviourPunCallbacks
 {
     public float money = 500;
     public float mineralCount;
@@ -26,7 +27,6 @@ public class Financials : MonoBehaviour
     public void BuyBullets()
     {
         money -= 50;
-        GunShoot.instance.ChangeBullets(5);
         MoneyChanged.Invoke();
         BulletsBought.Invoke();
     }
