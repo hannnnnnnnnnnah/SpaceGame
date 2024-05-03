@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         ShipMove.instance.HealthChanged.AddListener(HealthUpdater);
         GunShoot.instance.BulletsChanged.AddListener(BulletUpdater);
         Financials.instance.MoneyChanged.AddListener(MoneyUpdater);
+        Financials.instance.BulletsBought.AddListener(BulletUpdater);
 
         int playerID = PhotonNetwork.LocalPlayer.ActorNumber - 1;
         body.GetComponent<SkinnedMeshRenderer>().material = roleColors[playerID];

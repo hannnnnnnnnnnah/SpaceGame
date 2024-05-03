@@ -11,6 +11,7 @@ public class Financials : MonoBehaviour
 
     public UnityEvent MoneyChanged;
     public UnityEvent MineralCountChanged;
+    public UnityEvent BulletsBought;
 
     public static Financials instance;
 
@@ -25,7 +26,9 @@ public class Financials : MonoBehaviour
     public void BuyBullets()
     {
         money -= 50;
+        GunShoot.instance.ChangeBullets(5);
         MoneyChanged.Invoke();
+        BulletsBought.Invoke();
     }
 
     public void AddMineralCount(float m)

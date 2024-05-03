@@ -28,7 +28,6 @@ public class FinancialManager : MonoBehaviour
 
     public void BuyBullets()
     {
-        GunShoot.instance.ChangeBullets(5);
         Financials.instance.BuyBullets();
     }
 }
