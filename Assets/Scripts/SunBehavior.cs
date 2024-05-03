@@ -8,6 +8,7 @@ public class SunBehavior : MonoBehaviour
     {
         if (other.CompareTag("Ship"))
         {
+            print("collided");
             GameManager.instance.WinGame();
         }
     }
