@@ -202,8 +202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosition: {x: 0, y: 0, z: 0}
-  frequency: 1
+  frequency: 0.1
   magnitude: 100
+  trailLifetime: 5
 --- !u!96 &7063501139654682891
 TrailRenderer:
   serializedVersion: 3
